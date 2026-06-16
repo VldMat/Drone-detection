@@ -55,11 +55,11 @@ Drone-detection/
 
 | Member | Pillar | Core responsibility |
 |---|---|---|
-| TBD | Data & Annotation | Roboflow export, annotation verification, class balance, train/val/test split, held-out video clip |
-| TBD | Detector Training | Transfer-learn YOLO, log all hyperparameters, training run |
-| TBD | Evaluation & Failure Analysis | Test-set mAP50/mAP50-95/P/R, confusion matrix, failure-case gallery |
-| TBD | Small-Object + Tracking | SAHI tiling, ByteTrack/BoT-SORT tracker on video |
-| TBD | Demo + Integration | Inference script, live demo + recorded fallback, notebook integration |
+| Patrick | Data & Annotation | Roboflow export, annotation verification, class balance, train/val/test split, held-out video clip |
+| Jorge | Detector Training | Transfer-learn YOLO, log all hyperparameters, training run |
+| Alberto | Evaluation & Failure Analysis | Test-set mAP50/mAP50-95/P/R, confusion matrix, failure-case gallery |
+| Vlad | Small-Object + Tracking | SAHI tiling, ByteTrack/BoT-SORT tracker on video |
+| Felipe | Demo + Integration | Inference script, live demo + recorded fallback, notebook integration |
 
 All 5 members author the shared Colab notebook (one section each) and present on July 2nd.
 

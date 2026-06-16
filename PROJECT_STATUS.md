@@ -29,19 +29,19 @@
   must be fully separate from training data so the demo is honest.
 
 ## Team & Roles (5 members)
-- Member 1 — **Data & Annotation** (M1, M2): Roboflow export, verify annotations, class balance,
+- Patrick — **Data & Annotation** (M1, M2): Roboflow export, verify annotations, class balance,
   train/val/test split, source held-out video clip. *Bonus:* class-distribution plots +
   augmentation strategy (copy-paste for rarer class). Notebook: data + preprocessing.
-- Member 2 — **Detector Training** (M3): transfer-learn YOLO, log every hyperparameter, run
+- Jorge — **Detector Training** (M3): transfer-learn YOLO, log every hyperparameter, run
   training (rough checkpoint Jun 21). *Bonus:* compare 2 model scales (YOLOv11n vs s) + measure FPS.
   Notebook: model + training config.
-- Member 3 — **Evaluation & Failure Analysis** (M4): test-set mAP50, mAP50-95, P/R, confusion
+- Alberto — **Evaluation & Failure Analysis** (M4): test-set mAP50, mAP50-95, P/R, confusion
   matrix. *Bonus:* failure-case gallery of drone↔bird confusions + error analysis by object size.
   Notebook: evaluation + results + limitations. **Co-owns slides.**
-- Member 4 — **Small-Object + Tracking** (M5 + small-object pitfall): SAHI tiling + tracking
+- Vlad — **Small-Object + Tracking** (M5 + small-object pitfall): SAHI tiling + tracking
   (ByteTrack/BoT-SORT) on the video clip. *Bonus:* tracking metrics (MOTA/IDF1) + stability
   discussion. Notebook: tracking + small-object handling.
-- Member 5 — **Demo + Integration/PM** (M8, M6 assembly, M9): reusable inference script, live
+- Felipe — **Demo + Integration/PM** (M8, M6 assembly, M9): reusable inference script, live
   demo + recorded fallback, notebook integration, owns this status file. *Bonus:* Colab
   reproducibility pass + WOSDETC future-work framing. Notebook: intro/framing + integration.
   **Co-owns slides.**
