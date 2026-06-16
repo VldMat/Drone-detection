@@ -1,6 +1,3 @@
-# Claude Code local skill files — not for the team repo
-.claude/
-
 # Python
 __pycache__/
 *.py[cod]
@@ -21,16 +18,22 @@ build/
 venv/
 env/
 
-# Data files (large — use Drive/shared storage instead)
+# Data files (large — store on Google Drive, not git)
 *.zip
 *.tar.gz
 *.h5
 *.pt
 *.pth
 *.onnx
-data/
+data/raw/
+data/processed/
+data/video/
 datasets/
 runs/
+
+# Model weights (store on Google Drive)
+models/*
+!models/.gitkeep
 
 # OS
 .DS_Store
