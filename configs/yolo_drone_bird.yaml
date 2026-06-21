@@ -8,7 +8,7 @@ val: val/images
 test: test/images
 
 nc: 2                            # number of classes
-names: ["drone", "bird"]
+names: ["bird", "drone"]         # bird=0, drone=1 — must match label files (verified from data.yaml)
 
 # Model
 model: yolo11s.pt                # pretrained checkpoint (transfer learning)

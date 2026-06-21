@@ -1,11 +1,13 @@
 # Project Status — Drone-vs-Bird Detection (Defense)
 
 ## Snapshot
-- Current milestone: M1 — dataset decided (Roboflow primary); team confirmation + setup in progress
-- Dataset: **Roboflow Universe "drone-vs-bird"** (still images, YOLO-ready). Classes: [drone, bird].
-  WOSDETC video dataset kept as **Plan B / future work**.
-- Days to July 1st: 16 (as of 2026-06-15)
-- Last updated: 2026-06-15
+- Current milestone: M2/M3 — dataset verified, split complete; **Jorge starts training now**
+- Dataset: **Roboflow Universe "drone-vs-bird" v3** (still images, YOLOv11 format).
+  Classes: [bird=0, drone=1] (verify in data.yaml). 2783 images total: 1950 train / 555 val / 278 test.
+  Class balance: drone ~2020 boxes (63%) | bird ~1200 boxes (37%) → ratio ~1.7:1. No leakage detected.
+  Processed data on Drive at: `/content/drive/MyDrive/!CVIS/data/processed`
+- Days to July 1st: 10 (as of 2026-06-21)
+- Last updated: 2026-06-21
 
 ## Decisions Log
 - 2026-06-15 — Use case fixed: **drone-vs-bird object detection** for a defense / counter-UAV
@@ -23,10 +25,12 @@
   2-model-scale comparison + tracking metrics (drop these first if training slips).
 
 ## Open Questions / Blockers
-- Map the 5 real names to Member 1–5 roles below.
-- Confirm dataset choice with the team on 2026-06-16 (decision leaning Roboflow is recorded above).
-- Source a short (~20–60s) held-out drone-vs-bird video clip for tracking/demo (Member 1) —
-  must be fully separate from training data so the demo is honest.
+- **[OPEN — URGENT]** Confirm class ID order from `data/processed/data.yaml` before training:
+  is bird=0, drone=1 or the reverse? This must match the label files.
+- **[OPEN]** Drive shared folder link needs to be added to `demo/README.md` for team access.
+- **[OPEN]** Video clips in Drive VIDEOS/ folder — Vlad needs to know which clips are suitable for
+  tracking (disjoint from training data). Patrick to confirm.
+- **[RESOLVED]** Dataset chosen (Roboflow v3, 2783 images, no leakage, valid→val renamed, data.yaml written).
 
 ## Team & Roles (5 members)
 - Patrick — **Data & Annotation** (M1, M2): Roboflow export, verify annotations, class balance,
@@ -66,8 +70,10 @@ each other member handing over one finished slide; all 5 rehearse and must be Q&
 
 ## Milestone Tracker
 [x] M0 — Define use case & real-world problem (drone-vs-bird, defense)
-[~] M1 — Source dataset — **Roboflow chosen (primary); WOSDETC = Plan B**; team confirm Jun 16
-[ ] M2 — Verify annotations + train/val/test split (+ tiling for small objects)
+[x] M1 — Source dataset — **Roboflow v3 downloaded, annotations verified visually, class balance
+         checked, no leakage, processed to Drive. Patrick complete.**
+[x] M2 — Verify annotations + train/val/test split — 1950/555/278 split, valid→val renamed,
+         class dist plot saved, data.yaml written. **Patrick complete.**
 [ ] M3 — Transfer-learn an object detector: drone vs bird (mandatory core)
 [ ] M4 — Report training params + test-set metrics
 [ ] M5 — (Bonus) Object tracking on video (+ optional segmentation)
