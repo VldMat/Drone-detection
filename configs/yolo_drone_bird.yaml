@@ -32,7 +32,7 @@ hsv_v: 0.4
 flipud: 0.0
 fliplr: 0.5
 mosaic: 1.0
-copy_paste: 0.3                  # helps with class imbalance (drone underrepresented)
+copy_paste: 0.3                  # helps with class imbalance (bird is minority at ~37% of boxes)
 
 # Output
 project: ../runs/detect

@@ -1,7 +1,11 @@
 # Project Status — Drone-vs-Bird Detection (Defense)
 
 ## Snapshot
-- Current milestone: M2/M3 — dataset verified, split complete; **Jorge starts training now**
+- Current milestone: M3 complete → **M4 (evaluation) and M5 (tracking) now unblocked**
+- Val-set results (2026-06-21): YOLOv11s mAP50=0.929, mAP50-95=0.566, P=0.928, R=0.866, 90.6 FPS, 19.2 MB
+                                YOLOv11n mAP50=0.938, mAP50-95=0.582, P=0.926, R=0.882, 114.5 FPS, 5.5 MB
+  Note: nano outperforms small — expected on a small dataset (bias-variance tradeoff). Test-set metrics pending (M4).
+- best_s.pt and best_n.pt on Drive at /content/drive/MyDrive/!CVIS/models/
 - Dataset: **Roboflow Universe "drone-vs-bird" v3** (still images, YOLOv11 format).
   Classes: [bird=0, drone=1] (verify in data.yaml). 2783 images total: 1950 train / 555 val / 278 test.
   Class balance: drone ~2020 boxes (63%) | bird ~1200 boxes (37%) → ratio ~1.7:1. No leakage detected.
@@ -25,9 +29,16 @@
   2-model-scale comparison + tracking metrics (drop these first if training slips).
 
 ## Open Questions / Blockers
-- **[OPEN — URGENT]** Confirm class ID order from `data/processed/data.yaml` before training:
-  is bird=0, drone=1 or the reverse? This must match the label files.
-- **[OPEN]** Drive shared folder link needs to be added to `demo/README.md` for team access.
+- **[RESOLVED 2026-06-21]** Class ID order confirmed: bird=0, drone=1. Bug in
+  `configs/yolo_drone_bird.yaml` corrected (names field was reversed). `configs/data.yaml` also
+  confirmed correct. Any notebook cell referencing class IDs must use this order.
+- **[RESOLVED 2026-06-21]** Colab Drive access: `!CVIS` is owned by Patrick and lives under
+  "Shared with me". Each member must **Add shortcut to Drive** (into My Drive root) so the
+  canonical path `/content/drive/MyDrive/!CVIS` resolves identically for everyone. The training
+  notebook now asserts `data/processed` exists *before* any `os.makedirs`, so a missing shortcut
+  fails loudly instead of creating a phantom empty `!CVIS`.
+- **[OPEN]** Drive shared folder link needs to be added to `demo/README.md` for team access
+  (include the "Add shortcut to Drive" instruction so Alberto and Vlad don't hit the same wall).
 - **[OPEN]** Video clips in Drive VIDEOS/ folder — Vlad needs to know which clips are suitable for
   tracking (disjoint from training data). Patrick to confirm.
 - **[RESOLVED]** Dataset chosen (Roboflow v3, 2783 images, no leakage, valid→val renamed, data.yaml written).
@@ -74,7 +85,9 @@ each other member handing over one finished slide; all 5 rehearse and must be Q&
          checked, no leakage, processed to Drive. Patrick complete.**
 [x] M2 — Verify annotations + train/val/test split — 1950/555/278 split, valid→val renamed,
          class dist plot saved, data.yaml written. **Patrick complete.**
-[ ] M3 — Transfer-learn an object detector: drone vs bird (mandatory core)
+[x] M3 — Transfer-learn an object detector: drone vs bird (mandatory core)
+         Notebook: `notebooks/02_detector_training.ipynb`. Both YOLOv11s and YOLOv11n trained
+         and evaluated on val set (2026-06-21). best_s.pt + best_n.pt on Drive. M4 and M5 unblocked.
 [ ] M4 — Report training params + test-set metrics
 [ ] M5 — (Bonus) Object tracking on video (+ optional segmentation)
 [ ] M6 — Build & document the Colab notebook
