@@ -1,0 +1,31 @@
+Computer Vision Group Project
+==============================
+
+In this group project you are required to:
+
+- Build a computer vision use case that can be solved with deep learning, which has a practical application by solving a real world problem
+
+You will have to:
+
+- Prepare a dataset of images
+- Annotate the images or use previously annotated images
+- Apply transfer learning to your already pretrained model (YOLO, U Net, Mask R CNN...) to be able to handle the new images
+- Report on all the training parameters used (epochs, loss function...) and performance measures on the test dataset
+- Object detection should be part of the exercise. Giving more insights by applying other approaches covered in class such as instance segmentation, pose estimation, tracking, Generative AI... in addition to the required task, will be marked positively
+
+Documents to submit are:
+
+- GoogleColab notebook for which you have to submit the link as well as the original file. The notebook should be clear, well documented and well explained, describing any preprocessing, feature engineering, model used, and performance results.
+- A powerpoint explaining the use case and the rationale behind it, describing the data used, the model used, the performance metrics, current limitations and possible future improvements
+
+Deadline:
+
+You are asked to submit your notebook link by July 1st midnight, Madrid Time
+
+Presentation:
+
+on our last Session on July 2nd
+
+- Each group has 12 minutes to present: slides of their work + Live Demo
+- There will be 2 minutes questions
+- All group members are expected to participate in the presentation

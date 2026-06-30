@@ -1,0 +1,8 @@
+path: /content/drive/MyDrive/!CVIS/data/processed
+train: train/images
+val: val/images
+test: test/images
+nc: 2
+names:
+- bird
+- drone

@@ -1,0 +1,41 @@
+# YOLOv11 training configuration — Drone vs Bird detection
+# Fill in values as training is set up (M3 — Member 2)
+
+# Dataset
+path: ../data/processed          # relative to this config; adapt for Colab Drive mount
+train: train/images
+val: val/images
+test: test/images
+
+nc: 2                            # number of classes
+names: ["bird", "drone"]         # bird=0, drone=1 — must match label files (verified from data.yaml)
+
+# Model
+model: yolo11s.pt                # pretrained checkpoint (transfer learning)
+# model: yolo11n.pt              # swap to nano for scale comparison (Bonus M3)
+
+# Hyperparameters — all must be reported in the notebook (assignment requirement)
+epochs: 50
+batch: 16
+imgsz: 640
+optimizer: AdamW
+lr0: 0.001                       # initial learning rate
+lrf: 0.01                        # final lr = lr0 * lrf (cosine schedule)
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3
+
+# Augmentations
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+flipud: 0.0
+fliplr: 0.5
+mosaic: 1.0
+copy_paste: 0.3                  # helps with class imbalance (bird is minority at ~37% of boxes)
+
+# Output
+project: ../runs/detect
+name: drone_bird_v1
+save: true
+plots: true
